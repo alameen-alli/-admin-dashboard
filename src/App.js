@@ -3,10 +3,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { FiSettings } from 'react-icons/fi';
 import {Navbar,Footer, Sidebar, ThemeSettings} from './components'
-import {Area, Bar, ColorManager, Financial, Line, Pie, Pyramid, Stacked, ColorPicker, ColorMapping, Editor} from './pages'
+import {Area, Bar, ColorManager, Financial, Line, Pie, Pyramid, Stacked, ColorPicker, ColorMapping, Editor} from './pages';
+import { useStateContext } from './contexts/ContextProvider';
 
 function App() {
-  const activeMenu = true;
+  const {activeMenu} = useStateContext();
   
 
   return (
