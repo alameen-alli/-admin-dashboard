@@ -12,7 +12,7 @@ const initialState = {
 export const StateProvider = ({ children }) => {
     const [activeMenu, setActiveMenu] = useState(true);
     const [isClicked, setIsClicked] = useState(initialState);
-    const [screenSize, setScreenSize] = useState('')
+    const [screenSize, setScreenSize] = useState('');
 
     const handleClick = (clicked) => { 
         setIsClicked({...initialState, [clicked] : true});
