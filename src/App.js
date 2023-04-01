@@ -4,7 +4,7 @@ import './App.css';
 import { FiSettings } from 'react-icons/fi';
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components'
 // import { Area, Bar, ColorManager, Financial, Line, Pie, Pyramid, Stacked, ColorMapping } from './pages/Charts';
-import {Calender, ColorPicker, Customers, Ecommerce, Editor, Employees, Kanban, Orders } from './pages'
+import {Calendar, ColorPicker, Customers, Ecommerce, Editor, Employees, Kanban, Orders } from './pages'
 import { useStateContext } from './contexts/ContextProvider';
 
 function App() {
@@ -60,7 +60,7 @@ function App() {
               {/* Apps */}
               <Route path='/kanban' element="Kanban" />
               <Route path='/editor' element="Editor" />
-              <Route path='/calendar' element="Calendar" />
+              <Route path='/calendar' element={<Calendar />} />
               <Route path='/color-picker' element={<ColorPicker/>} />
 
               {/* Charts */}
