@@ -2,22 +2,26 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { FiSettings } from 'react-icons/fi';
-import { Navbar, Footer, Sidebar, ThemeSettings } from './components'
-// import { Area, Bar, ColorManager, Financial, Line, Pie, Pyramid, Stacked, ColorMapping } from './pages/Charts';
-import { Calendar, ColorPicker, Customers, Ecommerce, Editor, Employees, Kanban, Orders } from './pages'
+import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
+import { Calendar, ColorPicker, Customers, Ecommerce, Editor, Employees, Kanban, Orders } from './pages';
+import Line from './pages/Charts/Line';
 import { useStateContext } from './contexts/ContextProvider';
 
 function App() {
-  const { activeMenu, setActiveMenu } = useStateContext();
+  const { activeMenu, setActiveMenu, themeSettings, setThemeSettings, currentMode } = useStateContext();
 
 
   return (
-    <div>
+    <div className={currentMode === 'Dark' ? 'dark' : ''}>
       <BrowserRouter>
         <div className='flex relative dark:bg-main-dark-bg'>
           <div className='fixed right-4 bottom-4' style={{ zIndex: '1000' }}>
-            <TooltipComponent content='settings' position='Top'>
-              <button className='text-3xl p-3 '>
+            <TooltipComponent content={`${themeSettings ? '' : 'Settings'}`} position='Top'>
+              <button
+               className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray'
+               style={{ backgroundColor: 'lightgray', borderRadius: '50%'}}
+               onClick={() => setThemeSettings(true)}
+              >
                 <FiSettings />
               </button>
             </TooltipComponent>
@@ -48,7 +52,7 @@ function App() {
 
             <div>
 
-              <ThemeSettings />
+              {themeSettings && <ThemeSettings />}
 
               <Routes>
 
@@ -68,7 +72,7 @@ function App() {
                 {/* <Route path='/color-picker' element={<ColorPicker />} /> */}
 
                 {/* Charts */}
-                <Route path='/line' element="Line" />
+                <Route path='/line' element={<Line />} />
                 <Route path='/area' element="Area" />
                 <Route path='/bar' element="Bar" />
                 <Route path='/pie' element="Pie" />

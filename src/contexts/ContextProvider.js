@@ -21,12 +21,16 @@ export const StateProvider = ({ children }) => {
         setCurrentMode(e.target.value);
 
         localStorage.setItem('themeMode', e.target.value);
+
+        setThemeSettings(false);
     }
 
-    const setColor = (e) => {
-        setCurrentColor(e.target.value);
+    const setColor = (color) => {
+        setCurrentColor(color);
 
-        localStorage.setItem('themeMode', e.target.value);
+        localStorage.setItem('colorMode', color);
+
+        setThemeSettings(false);
     }
 
     const handleClick = (clicked) => { 
@@ -38,8 +42,7 @@ export const StateProvider = ({ children }) => {
             activeMenu, setActiveMenu, 
             isClicked, setIsClicked, 
             handleClick, screenSize, setScreenSize ,
-            currentColor, setCurrentColor,
-            currentMode, setCurrentMode,
+            currentColor, currentMode, 
             themeSettings, setThemeSettings,
             setColor, setMode
         }}>
@@ -48,4 +51,4 @@ export const StateProvider = ({ children }) => {
     )
 };
 
-export const useStateContext = () => useContext(StateContext);e
+export const useStateContext = () => useContext(StateContext);
