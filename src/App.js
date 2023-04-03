@@ -5,10 +5,13 @@ import { FiSettings } from 'react-icons/fi';
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import { Calendar, ColorPicker, Customers, Ecommerce, Editor, Employees, Kanban, Orders } from './pages';
 import Line from './pages/Charts/Line';
+import Area from './pages/Charts/Area';
+import Bar from './pages/Charts/Bar';
+import Pie from './pages/Charts/Pie';
 import { useStateContext } from './contexts/ContextProvider';
 
 function App() {
-  const { activeMenu, setActiveMenu, themeSettings, setThemeSettings, currentMode } = useStateContext();
+  const { activeMenu, setActiveMenu, themeSettings, setThemeSettings, currentMode, currentColor } = useStateContext();
 
 
   return (
@@ -19,7 +22,7 @@ function App() {
             <TooltipComponent content={`${themeSettings ? '' : 'Settings'}`} position='Top'>
               <button
                className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray'
-               style={{ backgroundColor: 'lightgray', borderRadius: '50%'}}
+               style={{ backgroundColor: currentColor, borderRadius: '50%'}}
                onClick={() => setThemeSettings(true)}
               >
                 <FiSettings />
@@ -73,9 +76,9 @@ function App() {
 
                 {/* Charts */}
                 <Route path='/line' element={<Line />} />
-                <Route path='/area' element="Area" />
-                <Route path='/bar' element="Bar" />
-                <Route path='/pie' element="Pie" />
+                <Route path='/area' element={<Area />} />
+                <Route path='/bar' element={<Bar />} />
+                <Route path='/pie' element={<Pie />} />
                 <Route path='/financial' element="Financial" />
                 <Route path='/color-mapping' element="Color-Mapping" />
                 <Route path='/pyramid' element="" />
