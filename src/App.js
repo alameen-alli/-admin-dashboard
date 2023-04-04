@@ -3,11 +3,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { FiSettings } from 'react-icons/fi';
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
-import { Calendar, ColorPicker, Customers, Ecommerce, Editor, Employees, Kanban, Orders } from './pages';
+import { Calendar, ColorPicker, Customers, Ecommerce, Editor, Employees, Kanban, Orders, Pyramid } from './pages';
 import Line from './pages/Charts/Line';
 import Area from './pages/Charts/Area';
 import Bar from './pages/Charts/Bar';
 import Pie from './pages/Charts/Pie';
+import Financial from './pages/Charts/Financial';
+import ColorMapping from './pages/Charts/ColorMapping';
+import Stacked from './pages/Charts/Stacked';
 import { useStateContext } from './contexts/ContextProvider';
 
 function App() {
@@ -79,10 +82,10 @@ function App() {
                 <Route path='/area' element={<Area />} />
                 <Route path='/bar' element={<Bar />} />
                 <Route path='/pie' element={<Pie />} />
-                <Route path='/financial' element="Financial" />
-                <Route path='/color-mapping' element="Color-Mapping" />
-                <Route path='/pyramid' element="" />
-                <Route path='/stacked' element="Stacked" />
+                <Route path='/financial' element={<Financial />} />
+                <Route path='/color-mapping' element={<ColorMapping />}/>
+                <Route path='/pyramid' element={<Pyramid />} />
+                <Route path='/stacked' element={<Stacked />} />
               </Routes>
             </div>
           </div>

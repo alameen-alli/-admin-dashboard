@@ -26,7 +26,7 @@ const Sidebar = () => {
             {activeMenu && (<>
                 <div className='flex justify-between items-center'>
                     <Link to="/" onClick={handleCloseSideBar} className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
-                        <SiShopware /> <span>Shoppy</span>
+                        <SiShopware /> <span>ShopMaster</span>
                     </Link>
 
                     {/* This is a button wrapped in a tooltip component. Clicking the button toggles the active menu state using a callback function. */}
